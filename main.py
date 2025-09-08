@@ -1,3 +1,4 @@
+# main.py
 import pandas as pd
 import numpy as np
 import os
@@ -16,7 +17,7 @@ def main():
     """
     print("--- INICIANDO PROJETO DE SIMULAÇÃO DE ATENDIMENTO DE EMERGÊNCIA ---")
     
-    # 1. Carregar e preparar os dados
+    # 1. Carregar e preparar os dados para análise
     print("\n[ETAPA 1/5] Carregando e preparando dados para análise...")
     try:
         df = pd.read_csv(config.DATASET_PATH, engine='python')
@@ -25,25 +26,22 @@ def main():
         for col in timestamp_cols:
             df[col] = pd.to_datetime(df[col], errors='coerce')
         
-        df.dropna(subset=timestamp_cols + ['Call Type Group', 'Final Priority'], inplace=True)
+        df.dropna(subset=timestamp_cols, inplace=True)
         
     except FileNotFoundError:
-        print(f"ERRO: Dataset não encontrado em '{config.DATASET_PATH}'.")
+        print(f"ERRO: Dataset não encontrado em '{config.DATASET_PATH}'. Verifique o caminho.")
         return
 
     # 2. Encontrar as melhores distribuições de probabilidade
     print("\n[ETAPA 2/5] Analisando distribuições de probabilidade dos tempos...")
     
-    # Tempo entre chegadas
     df.sort_values('Received DtTm', inplace=True)
     df['tempo_entre_chegadas'] = df['Received DtTm'].diff().dt.total_seconds() / 60.0
     dist_chegadas = find_best_distribution(df[df['tempo_entre_chegadas'] > 0]['tempo_entre_chegadas'].rename("Tempo entre Chegadas"))
     
-    # Tempo de Serviço dos Bombeiros (APENAS no local)
     df['on_scene_time'] = (df['Available DtTm'] - df['On Scene DtTm']).dt.total_seconds() / 60.0
     dist_servico_bombeiros = find_best_distribution(df[df['on_scene_time'] > 0]['on_scene_time'].rename("Tempo de Serviço no Local"))
     
-    # Tempo de Atendimento do Operador (Humano ou Chatbot)
     df['operator_duration'] = (df['Entry DtTm'] - df['Received DtTm']).dt.total_seconds() / 60.0
     dist_atendimento_operador = find_best_distribution(df[df['operator_duration'] > 0]['operator_duration'].rename("Duração Atendimento Operador"))
     
@@ -59,8 +57,8 @@ def main():
     
     dists = {
         "chegadas": dist_chegadas,
+        "atendimento_operador": dist_atendimento_operador,
         "servico_bombeiros": dist_servico_bombeiros,
-        "atendimento_operador": dist_atendimento_operador
     }
     
     for n_unidades in config.CENARIOS_UNIDADES:
@@ -84,12 +82,13 @@ def main():
     
     tabela_resumo = []
     for n_unidades, data in all_results.items():
-        tempo_servico = np.mean(data.get('tempos_servico_bombeiros', [0]))
         tabela_resumo.append({
             'Unidades': n_unidades,
-            'Chamadas atendidas': data.get('total_chamadas', 0),
+            'Chamadas Atendidas': data.get('total_chamadas', 0),
+            'Simples (Chatbot)': data.get('chamadas_simples', 0),
+            'Complexas (Humano)': data.get('chamadas_complexas', 0),
             'Tempo médio de espera (min)': np.mean(data.get('tempos_espera_bombeiros', [0])),
-            'Tempo médio de serviço (min)': tempo_servico
+            'Tempo médio de serviço (min)': np.mean(data.get('tempos_servico_bombeiros', [0]))
         })
     df_resumo = pd.DataFrame(tabela_resumo)
     print("\n--- Tabela de Resumo dos Resultados (com Chatbot) ---")
