@@ -185,4 +185,4 @@ A estrutura do projeto foi organizada para garantir a modularidade e a clareza d
 | **`requirements.txt`**| Lista de dependências Python do projeto. |
 
 ---
-**Autores:** Luiz Jordany de Sousa Silva
+**Autores:** Luiz Jordany de Sousa Silva, Syanne Karoline Moreira Tavares, Aimeê Miranda Ribeiro, Fellipe Machado Castro, Luiz Mateus Pereira Da Conceição
