@@ -64,7 +64,7 @@ def main():
     for n_unidades in config.CENARIOS_UNIDADES:
         print(f"\n--- Cenário com {n_unidades} unidades ---")
         resultados_cenario = run_simulation(
-            num_bombeiros=n_unidades,
+            num_unidades=n_unidades,
             agente_ia=agente_ia,
             cenarios=cenarios,
             distributions=dists
