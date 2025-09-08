@@ -1,0 +1,184 @@
+{
+  "Assist Police": [
+    "A polícia solicitou apoio para controle de tráfego em um evento.",
+    "Precisamos de uma unidade para auxiliar a polícia em uma ocorrência de rotina.",
+    "Solicitação policial para uma verificação de bem-estar.",
+    "Apoio solicitado pela polícia para isolar uma área.",
+    "Chamado da delegacia para assistência em um perímetro de segurança."
+  ],
+  "HazMat": [
+    "Um caminhão tombou na rodovia e está vazando um líquido químico amarelo.",
+    "Sentimos um cheiro químico muito forte vindo do laboratório da universidade.",
+    "Um barril com um símbolo de perigo foi encontrado abandonado.",
+    "Houve um derramamento de material radioativo no hospital.",
+    "A fábrica de produtos de limpeza está com um vazamento de cloro."
+  ],
+  "Marine Fire": [
+    "Tem fumaça saindo de um barco atracado na marina.",
+    "Um iate pegou fogo perto da ponte.",
+    "Estamos vendo chamas em um navio de carga no porto.",
+    "Explosão em uma lancha, parece que o motor pegou fogo.",
+    "Incêndio em um dos contêineres no navio."
+  ],
+  "Fuel Spill": [
+    "Um carro bateu na bomba de gasolina e está vazando combustível por todo lado.",
+    "O tanque de um caminhão furou e está derramando diesel na pista.",
+    "Grande mancha de óleo na água da baía, perto dos barcos.",
+    "Derramamento de querosene no pátio do aeroporto.",
+    "Vazamento de gasolina no estacionamento do shopping."
+  ],
+  "Confined Space / Structure Collapse": [
+    "Parte de um prédio em construção desabou, acho que tem gente soterrada.",
+    "Um trabalhador caiu em um tanque subterrâneo e não consegue sair.",
+    "O teto de um armazém desabou sobre os funcionários.",
+    "Houve um deslizamento de terra e uma casa foi soterrada.",
+    "Socorro, o andaime de uma obra caiu."
+  ],
+  "Odor (Strange / Unknown)": [
+    "Tem um cheiro estranho de produto químico no nosso andar.",
+    "Sinto um odor muito forte, como se fosse ovo podre, vindo da rua.",
+    "Cheiro esquisito no sistema de ventilação do prédio.",
+    "Um odor forte e adocicado está vindo do bueiro.",
+    "Não é cheiro de gás, mas é um cheiro químico que está dando dor de cabeça."
+  ],
+  "Smoke Investigation (Outside)": [
+    "Estou vendo uma coluna de fumaça subindo de trás da colina.",
+    "Tem fumaça saindo de uma área de mata, mas não vejo fogo.",
+    "Cheiro forte de fumaça na vizinhança, mas não sei de onde vem.",
+    "Uma fumaça branca e densa está saindo de um terreno baldio.",
+    "Parece que tem fumaça perto da linha de transmissão de energia."
+  ],
+  "High Angle Rescue": [
+    "Um alpinista ficou preso na encosta da montanha.",
+    "Um limpador de janelas está pendurado pelo equipamento no 15º andar.",
+    "Alguém subiu em uma torre de celular e não consegue descer.",
+    "Uma criança caiu em um barranco e precisa de resgate.",
+    "Operador de guindaste passou mal e precisa ser retirado da cabine."
+  ],
+  "Alarms": [
+    "O alarme de incêndio do prédio disparou, mas não vemos fogo.",
+    "Recebi uma notificação do sistema de segurança sobre o alarme de fumaça.",
+    "O detector de monóxido de carbono está apitando sem parar.",
+    "O alarme de uma loja aqui perto está tocando há mais de 20 minutos.",
+    "Dispararam o alarme de incêndio da escola, precisamos de verificação."
+  ],
+  "Electrical Hazard": [
+    "Um poste caiu e os fios de alta tensão estão soltando faíscas na rua.",
+    "Sinto cheiro de fio queimado e o quadro de luz está estalando.",
+    "Fumaça saindo de uma caixa de transformador na calçada.",
+    "Uma árvore caiu sobre a rede elétrica.",
+    "Após o raio, um fio se partiu e está no chão."
+  ],
+  "Other": [
+    "Não sei bem como descrever, mas tem algo muito estranho acontecendo aqui.",
+    "É uma situação que não se encaixa em nada, preciso falar com alguém.",
+    "Estou ligando sobre um problema, mas não é médico nem de incêndio.",
+    "Preciso de ajuda, mas não sei qual serviço de emergência chamar.",
+    "Ocorreu um incidente bizarro, preciso de orientação."
+  ],
+  "Outside Fire": [
+    "Uma pilha de lixo pegou fogo no terreno ao lado.",
+    "A vegetação na beira da estrada está em chamas.",
+    "Fogo em uma moita perto do parquinho.",
+    "Alguém fez uma fogueira em uma área proibida e o fogo se espalhou.",
+    "Um raio atingiu uma árvore e ela está pegando fogo."
+  ],
+  "Gas Leak (Natural and LP Gases)": [
+    "Cheiro muito forte de gás de cozinha dentro de casa!",
+    "O medidor de gás na frente do prédio está fazendo um barulho de vazamento.",
+    "Sentimos cheiro de gás perto do bueiro na rua.",
+    "Um carro bateu em um botijão de gás e está vazando.",
+    "Acho que deixei o gás do fogão vazando, o cheiro está insuportável."
+  ],
+  "Explosion": [
+    "Ouvimos uma explosão enorme vindo da área industrial!",
+    "Uma caldeira explodiu na fábrica, tem feridos!",
+    "Houve uma explosão em um bueiro, a tampa voou longe.",
+    "Explodiu alguma coisa no laboratório de química da escola.",
+    "Meu vizinho estava mexendo com fogos de artifício e algo explodiu."
+  ],
+  "Extrication/Entrapped (Machinery. Vehicle)": [
+    "Houve um acidente de carro e o motorista está preso nas ferragens.",
+    "O braço de um operário ficou preso em uma máquina na fábrica.",
+    "Uma pessoa está presa debaixo de um carro que tombou.",
+    "Uma criança prendeu a cabeça na grade do portão.",
+    "O motorista do caminhão não consegue sair após a colisão."
+  ],
+  "Water Rescue": [
+    "Alguém está se afogando no rio!",
+    "Um barco virou com duas pessoas, elas não sabem nadar.",
+    "Um carro caiu dentro do lago!",
+    "Uma criança foi levada pela correnteza na praia.",
+    "Kayaker em apuros, o caiaque virou."
+  ],
+  "Train/Rail Incident": [
+    "Um trem descarrilou perto da estação.",
+    "Um carro está preso nos trilhos do trem e o trem está vindo.",
+    "Houve uma colisão entre dois trens de carga.",
+    "Fumaça saindo de um dos vagões do metrô.",
+    "Pessoa caída nos trilhos na estação."
+  ],
+  "Medical Incident": [
+    "Preciso de uma ambulância, meu avô está com dor no peito e dificuldade para respirar.",
+    "Uma senhora desmaiou na rua, ela bateu a cabeça.",
+    "Meu filho está com febre muito alta e começou a ter uma convulsão.",
+    "Houve um acidente de bicicleta, o ciclista está sangrando e parece ter quebrado o braço.",
+    "Acho que estou tendo um derrame, um lado do meu rosto está dormente."
+  ],
+  "Structure Fire / Smoke in Building": [
+    "FOGO! O prédio do outro lado da rua está em chamas!",
+    "Tem muita fumaça preta saindo do telhado da padaria.",
+    "O alarme de incêndio do meu apartamento disparou e sinto um cheiro forte de queimado.",
+    "A cozinha do restaurante do térreo está pegando fogo!",
+    "Socorro, a fumaça tomou conta do corredor do meu andar!"
+  ],
+  "Elevator /Escalator Rescue": [
+    "Estamos presos no elevador entre o 4º e o 5º andar.",
+    "O elevador parou e as portas não abrem.",
+    "O pé de uma criança ficou preso no final da escada rolante do shopping.",
+    "O elevador de carga despencou, tem gente dentro.",
+    "O elevador fez um barulho estranho e parou, estamos presos."
+  ],
+  "Vehicle Fire": [
+    "Um carro está pegando fogo no acostamento da rodovia.",
+    "Fumaça saindo do capô do meu carro e cheiro de queimado.",
+    "Um ônibus começou a pegar fogo no terminal.",
+    "O pneu de um caminhão explodiu e agora está em chamas.",
+    "Bateram no meu carro e o motor começou a pegar fogo."
+  ],
+  "Traffic Collision": [
+    "Dois carros bateram forte no cruzamento, um dos motoristas parece desacordado.",
+    "Uma moto foi atingida por um carro e o motoqueiro está no chão.",
+    "Houve um engavetamento com 4 carros na ponte, o trânsito está completamente parado.",
+    "Um caminhão bateu em um poste, os fios elétricos estão caídos na rua.",
+    "Meu carro capotou, estou bem mas não consigo sair."
+  ],
+  "Citizen Assist/Service Call": [
+    "Boa tarde, poderiam me ajudar? Tem um gato preso em cima do poste há horas.",
+    "A rua está completamente alagada por causa da chuva, os carros não passam.",
+    "A chave do meu apartamento caiu dentro de um bueiro, tem como alguém ajudar?",
+    "Um enxame de abelhas enorme apareceu no parquinho, as crianças estão com medo.",
+    "Preciso de ajuda para um vizinho idoso que caiu em casa e não consegue levantar."
+  ],
+  "Industrial Accidents": [
+    "Houve uma explosão em uma caldeira na fábrica, temos feridos.",
+    "Um vazamento de amônia na fábrica de gelo.",
+    "Um trabalhador caiu de uma altura de 5 metros na construção.",
+    "O braço de um operário ficou preso em uma prensa industrial.",
+    "Um silo de grãos desabou."
+  ],
+  "Administrative": [
+    "Gostaria de solicitar uma cópia do relatório de um incidente da semana passada.",
+    "Qual o procedimento para agendar uma vistoria de segurança no meu prédio?",
+    "Estou ligando para obter informações sobre o concurso para bombeiros.",
+    "Preciso de um certificado de uma ocorrência que atenderam na minha residência.",
+    "Gostaria de agendar uma palestra sobre prevenção de incêndios para a minha escola."
+  ],
+  "Watercraft in Distress": [
+    "Meu barco está afundando, preciso de resgate imediato!",
+    "O motor do meu jet ski parou no meio do rio e a correnteza está me levando.",
+    "Estamos em um veleiro sem vento e com o rádio quebrado, estamos à deriva.",
+    "Uma pessoa caiu de uma lancha e não a encontramos mais.",
+    "Nosso barco bateu em umas pedras e estamos com um furo no casco."
+  ]
+}
