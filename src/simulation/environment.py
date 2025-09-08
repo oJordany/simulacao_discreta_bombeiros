@@ -35,7 +35,7 @@ def chamada(env, nome, central, agente_ia, cenario, distributions, stats_locais)
         print(f"{env.now:.2f}: {nome} (Classificado como Simples) sendo atendido por chatbot...")
         
         # Simula o tempo de atendimento do chatbot para coletar informações.
-        tempo_atendimento = get_random_time(distributions['atendimento_operador']) * 0.5
+        tempo_atendimento = get_random_time(distributions['atendimento_simples']) * 0.5
         yield env.timeout(tempo_atendimento)
         
         print(f"{env.now:.2f}: {nome} (Simples) entra na fila para despacho.")
@@ -45,7 +45,7 @@ def chamada(env, nome, central, agente_ia, cenario, distributions, stats_locais)
         print(f"{env.now:.2f}: {nome} (Classificado como Complexo) sendo atendido por humano...")
         
         # Simula o tempo de atendimento de um operador humano.
-        yield env.timeout(get_random_time(distributions['atendimento_operador']))
+        yield env.timeout(get_random_time(distributions['atendimento_humano']))
         
         print(f"{env.now:.2f}: {nome} (Complexo) entra na fila para despacho.")
 

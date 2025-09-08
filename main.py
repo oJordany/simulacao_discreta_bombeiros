@@ -26,7 +26,8 @@ def main():
         for col in timestamp_cols:
             df[col] = pd.to_datetime(df[col], errors='coerce')
         
-        df.dropna(subset=timestamp_cols, inplace=True)
+        df['Final Priority'] = pd.to_numeric(df['Final Priority'], errors='coerce')
+        df.dropna(subset=timestamp_cols + ['Call Type Group', 'Final Priority'], inplace=True)
         
     except FileNotFoundError:
         print(f"ERRO: Dataset não encontrado em '{config.DATASET_PATH}'. Verifique o caminho.")
@@ -43,7 +44,25 @@ def main():
     dist_servico_bombeiros = find_best_distribution(df[df['on_scene_time'] > 0]['on_scene_time'].rename("Tempo de Serviço no Local"))
     
     df['operator_duration'] = (df['Entry DtTm'] - df['Received DtTm']).dt.total_seconds() / 60.0
-    dist_atendimento_operador = find_best_distribution(df[df['operator_duration'] > 0]['operator_duration'].rename("Duração Atendimento Operador"))
+    dist_atendimento_humano = find_best_distribution(df[df['operator_duration'] > 0]['operator_duration'].rename("Duração Atendimento Humano (Complexo)"))
+
+    # --- CORREÇÃO PRINCIPAL AQUI ---
+    # Tempo de Atendimento do Operador (APENAS para casos simples, alinhado com o KDD)
+    
+    # Primeiro, calculamos o limite de outlier, exatamente como no KDD
+    df['incident_duration'] = (df['Available DtTm'] - df['Received DtTm']).dt.total_seconds() / 60.0
+    Q3 = df['incident_duration'].quantile(0.75)
+    IQR = Q3 - df['incident_duration'].quantile(0.25)
+    upper_bound = Q3 + 1.5 * IQR
+    
+    # Agora, aplicamos a máscara com os TRÊS critérios
+    regra_prioridade = (df['Final Priority'] < 3)
+    regra_grupo = (~df['Call Type Group'].isin(['Fire', 'Alarms']))
+    regra_outlier = (df['incident_duration'] <= upper_bound)
+    
+    df_simples_mask = (regra_prioridade & regra_grupo & regra_outlier)
+    
+    dist_atendimento_simples = find_best_distribution(df[df_simples_mask & (df['operator_duration'] > 0)]['operator_duration'].rename("Duração Atendimento Humano (Simples)"))
     
     # 3. Gerar cenários e instanciar o agente de IA
     print("\n[ETAPA 3/5] Gerando cenários e inicializando o agente de IA...")
@@ -57,7 +76,8 @@ def main():
     
     dists = {
         "chegadas": dist_chegadas,
-        "atendimento_operador": dist_atendimento_operador,
+        "atendimento_humano": dist_atendimento_humano,
+        "atendimento_simples": dist_atendimento_simples,
         "servico_bombeiros": dist_servico_bombeiros,
     }
     
