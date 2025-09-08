@@ -11,8 +11,8 @@ class CentralDeEmergencia:
     """
     O único recurso com fila são as unidades de bombeiros.
     """
-    def __init__(self, env, num_bombeiros):
-        self.bombeiros = simpy.PriorityResource(env, capacity=num_bombeiros)
+    def __init__(self, env, num_unidades):
+        self.bombeiros = simpy.PriorityResource(env, capacity=num_unidades)
 
 def chamada(env, nome, central, agente_ia, cenario, distributions, stats_locais):
     """
@@ -27,9 +27,7 @@ def chamada(env, nome, central, agente_ia, cenario, distributions, stats_locais)
     
     print(f"{env.now:.2f}: {nome} (Prioridade {prioridade}) chega.")
 
-    # --- NOVA LÓGICA DE ROTEAMENTO BASEADA NO MODELO CLASSIFICADOR ---
-    
-    # O agente já nos deu a decisão final ("Simples" ou "Complexo")
+
     decisao_modelo = resultado_agente['decisao_final']
     
     if decisao_modelo == 'Simples':
@@ -77,7 +75,7 @@ def gerador_de_chamadas(env, central, agente_ia, cenarios, distributions, stats_
         cenario_completo = {"texto": cenario_texto, "id": i+1}
         env.process(chamada(env, f'Chamada-{i+1}', central, agente_ia, cenario_completo, distributions, stats_locais))
 
-def run_simulation(num_bombeiros, agente_ia, cenarios, distributions):
+def run_simulation(num_unidades, agente_ia, cenarios, distributions):
     """
     Configura e executa um cenário completo de simulação.
     """
@@ -91,7 +89,7 @@ def run_simulation(num_bombeiros, agente_ia, cenarios, distributions):
     }
     
     env = simpy.Environment()
-    central = CentralDeEmergencia(env, num_bombeiros)
+    central = CentralDeEmergencia(env, num_unidades)
     env.process(gerador_de_chamadas(env, central, agente_ia, cenarios, distributions, stats_locais))
     env.run()
     
