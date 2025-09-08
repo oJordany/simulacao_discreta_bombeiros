@@ -10,9 +10,12 @@ class CentralDeEmergencia:
     """
     Usa PriorityResource para filas com prioridade.
     """
-    def __init__(self, env, num_bombeiros):
-        self.chatbot_resource = simpy.PriorityResource(env, capacity=1)
-        self.bombeiros = simpy.PriorityResource(env, capacity=num_bombeiros)
+    def __init__(self, env, num_unidades):
+        self.chatbot_resource = simpy.PriorityResource(
+                                                        env, 
+                                                        capacity=1)
+        self.bombeiros = simpy.PriorityResource(env, 
+                                                capacity=num_unidades)
 
 def chamada(env, nome, central, agente_ia, cenario, distributions, stats_locais):
     """
@@ -70,7 +73,7 @@ def gerador_de_chamadas(env, central, agente_ia, cenarios, distributions, stats_
         
         env.process(chamada(env, f'Chamada-{i+1}', central, agente_ia, cenario_completo, distributions, stats_locais))
 
-def run_simulation(num_bombeiros, agente_ia, cenarios, distributions):
+def run_simulation(num_unidades, agente_ia, cenarios, distributions):
     """
     Configura e executa um cenário completo de simulação.
     """
@@ -81,7 +84,7 @@ def run_simulation(num_bombeiros, agente_ia, cenarios, distributions):
     }
     
     env = simpy.Environment()
-    central = CentralDeEmergencia(env, num_bombeiros)
+    central = CentralDeEmergencia(env, num_unidades)
     env.process(gerador_de_chamadas(env, central, agente_ia, cenarios, distributions, stats_locais))
     env.run()
     
